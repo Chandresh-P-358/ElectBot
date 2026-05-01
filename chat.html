@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectBot — Chat</title>
+    <meta name="description" content="Chat with ElectBot — your AI-powered election education assistant.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+    <!-- Export Modal -->
+    <div class="modal-overlay hidden" id="export-modal">
+        <div class="modal">
+            <div class="modal-icon">📋</div>
+            <h2>Export Conversation</h2>
+            <p>Save or share your ElectBot session.</p>
+            <div class="export-options">
+                <button class="export-btn" id="export-copy">📋 Copy to Clipboard</button>
+                <button class="export-btn" id="export-txt">📄 Download .txt</button>
+                <button class="export-btn" id="export-close">✖ Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Voice Listening Overlay -->
+    <div class="voice-overlay hidden" id="voice-overlay">
+        <div class="voice-modal">
+            <div class="voice-rings">
+                <div class="ring ring-1"></div>
+                <div class="ring ring-2"></div>
+                <div class="ring ring-3"></div>
+                <div class="voice-mic">🎙️</div>
+            </div>
+            <p class="voice-status" id="voice-status">Listening...</p>
+            <p class="voice-transcript" id="voice-transcript">Speak now</p>
+            <button class="voice-cancel" id="voice-cancel">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Chat UI -->
+    <div class="chat-app" id="chat-app">
+        <header class="chat-header">
+            <div class="header-left">
+                <a href="index.html" class="back-btn" title="Back to Home">←</a>
+                <div class="bot-avatar-h"><span>🗳️</span><span class="online-dot"></span></div>
+                <div>
+                    <h1>ElectBot</h1>
+                    <span class="status" id="status-text">AI Ready</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <a href="dashboard.html" class="h-btn h-link" title="Live Dashboard">📊</a>
+                <button class="h-btn" id="btn-export" title="Export Chat">📋</button>
+                <button class="h-btn" id="btn-clear" title="New Chat">🗑️</button>
+                <button class="h-btn" id="btn-theme" title="Toggle Theme">🌙</button>
+            </div>
+        </header>
+
+        <main class="chat-body" id="chat-body">
+            <div class="messages" id="messages"></div>
+        </main>
+
+        <div class="quick-prompts" id="quick-prompts">
+            <button class="qp" data-msg="How do elections work in India?">🇮🇳 India Elections</button>
+            <button class="qp" data-msg="Compare US and UK election systems">⚖️ Compare US vs UK</button>
+            <button class="qp" data-msg="Am I eligible to vote in Australia if I'm 17?">✅ Am I Eligible?</button>
+            <button class="qp" data-msg="Is it true that dead people vote in elections?">🔍 Bust a Myth</button>
+            <button class="qp" data-msg="Show me how to fill an Indian EVM ballot">🗳️ Ballot Simulator</button>
+            <button class="qp" data-msg="I'm a first-time voter in the US. Help me prepare!">🧭 First-Time Voter</button>
+            <button class="qp" data-msg="Quiz me on world elections!">🧠 Quiz Me</button>
+        </div>
+
+        <footer class="chat-footer">
+            <div class="input-row">
+                <button class="voice-btn" id="voice-btn" title="Voice Input">🎙️</button>
+                <textarea id="user-input" placeholder="Ask me anything about elections..." rows="1"></textarea>
+                <button class="send-btn" id="send-btn" title="Send">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+            </div>
+            <p class="input-note">ElectBot Local Engine • Strictly neutral • Educational purposes only</p>
+        </footer>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="modes.js"></script>
+    <script src="chat.js"></script>
+</body>
+</html>

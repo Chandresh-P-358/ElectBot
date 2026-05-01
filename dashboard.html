@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectBot — Live Election Dashboard</title>
+    <meta name="description" content="Real-time election news, upcoming elections worldwide, and global democracy statistics powered by ElectBot.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-brand">
+            <span class="brand-icon">🗳️</span>
+            <span class="brand-text">ElectBot</span>
+            <span class="version-badge">LIVE</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="dashboard.html" class="active">Dashboard</a>
+            <a href="chat.html" class="nav-cta">💬 Chat →</a>
+        </div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+    </nav>
+
+    <!-- Live Ticker -->
+    <div class="ticker-bar" id="ticker-bar">
+        <span class="ticker-live-dot"></span>
+        <span class="ticker-label">LIVE</span>
+        <div class="ticker-track">
+            <div class="ticker-content" id="ticker-content">
+                Loading election headlines...
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Stats Bar -->
+    <section class="stats-hero" id="stats-hero">
+        <div class="stats-grid">
+            <div class="stat-card" data-stat="voters">
+                <div class="stat-icon">🌍</div>
+                <div class="stat-value" id="stat-voters">2.1B+</div>
+                <div class="stat-label">Voters Covered</div>
+            </div>
+            <div class="stat-card" data-stat="countries">
+                <div class="stat-icon">🏛️</div>
+                <div class="stat-value" id="stat-countries">10</div>
+                <div class="stat-label">Countries</div>
+            </div>
+            <div class="stat-card" data-stat="turnout">
+                <div class="stat-icon">📊</div>
+                <div class="stat-value" id="stat-turnout">68%</div>
+                <div class="stat-label">Avg Turnout</div>
+            </div>
+            <div class="stat-card" data-stat="elections">
+                <div class="stat-icon">📅</div>
+                <div class="stat-value" id="stat-elections">3</div>
+                <div class="stat-label">Elections This Year</div>
+            </div>
+            <div class="stat-card" data-stat="democracies">
+                <div class="stat-icon">🗽</div>
+                <div class="stat-value" id="stat-democracies">167</div>
+                <div class="stat-label">World Democracies</div>
+            </div>
+            <div class="stat-card" data-stat="youngest">
+                <div class="stat-icon">🧑</div>
+                <div class="stat-value" id="stat-youngest">16</div>
+                <div class="stat-label">Youngest Voting Age</div>
+            </div>
+        </div>
+    </section>
+
+    <main class="dashboard-main">
+        <!-- Interactive World Map -->
+        <section class="section map-section">
+            <div class="section-header">
+                <h2>🗺️ <span class="gradient-text">Election Map</span></h2>
+                <p class="section-desc">Click any country to explore its election system</p>
+            </div>
+            <div class="map-container" id="map-container"></div>
+            <div class="map-legend">
+                <span class="legend-item"><span class="legend-dot upcoming"></span> Election Soon</span>
+                <span class="legend-item"><span class="legend-dot scheduled"></span> Scheduled</span>
+                <span class="legend-item"><span class="legend-dot covered"></span> Covered</span>
+            </div>
+        </section>
+
+        <!-- Two Column: News + Upcoming -->
+        <div class="two-col">
+            <!-- Live News -->
+            <section class="section news-section">
+                <div class="section-header">
+                    <h2>📰 <span class="gradient-text">Election News</span></h2>
+                    <button class="refresh-btn" id="refresh-news" title="Refresh">🔄</button>
+                </div>
+                <div class="news-list" id="news-list">
+                    <div class="news-skeleton">
+                        <div class="skeleton-line w80"></div>
+                        <div class="skeleton-line w60"></div>
+                    </div>
+                    <div class="news-skeleton">
+                        <div class="skeleton-line w70"></div>
+                        <div class="skeleton-line w50"></div>
+                    </div>
+                    <div class="news-skeleton">
+                        <div class="skeleton-line w90"></div>
+                        <div class="skeleton-line w40"></div>
+                    </div>
+                </div>
+                <div class="news-footer">
+                    <span class="last-updated" id="last-updated">Fetching...</span>
+                </div>
+            </section>
+
+            <!-- Upcoming Elections -->
+            <section class="section upcoming-section">
+                <div class="section-header">
+                    <h2>📅 <span class="gradient-text">Upcoming Elections</span></h2>
+                </div>
+                <div class="upcoming-list" id="upcoming-list">
+                    <div class="news-skeleton">
+                        <div class="skeleton-line w80"></div>
+                        <div class="skeleton-line w60"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Quick Actions -->
+        <section class="section actions-section">
+            <div class="actions-grid">
+                <a href="chat.html" class="action-card">
+                    <div class="action-icon">💬</div>
+                    <h3>Chat with ElectBot</h3>
+                    <p>Ask anything about elections worldwide</p>
+                </a>
+                <a href="chat.html#quiz" class="action-card">
+                    <div class="action-icon">🧠</div>
+                    <h3>Take a Quiz</h3>
+                    <p>Test your election knowledge</p>
+                </a>
+                <a href="chat.html#compare" class="action-card">
+                    <div class="action-icon">⚖️</div>
+                    <h3>Compare Systems</h3>
+                    <p>Side-by-side country comparison</p>
+                </a>
+                <a href="chat.html#eligible" class="action-card">
+                    <div class="action-icon">✅</div>
+                    <h3>Am I Eligible?</h3>
+                    <p>Check voter eligibility instantly</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>🗳️ ElectBot — Making democracy understandable for everyone</p>
+        <p class="footer-note">AI-powered • Strictly neutral • Educational purposes only</p>
+    </footer>
+
+    <script src="map.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

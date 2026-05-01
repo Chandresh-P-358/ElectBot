@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectBot — Your AI Election Guide</title>
+    <meta name="description" content="ElectBot is an AI-powered election guide chatbot that helps you understand democracy worldwide through intelligent conversation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <!-- Live Ticker -->
+    <div class="live-ticker" id="live-ticker">
+        <span class="ticker-live"><span class="live-dot"></span>LIVE</span>
+        <div class="ticker-strip">
+            <div class="ticker-inner" id="ticker-inner">
+                🗳️ Brazil presidential election scheduled for October 2026 &nbsp;•&nbsp;
+                🇺🇸 US Midterms: All 435 House seats up for election in November 2026 &nbsp;•&nbsp;
+                🇫🇷 France presidential election expected April 2027 &nbsp;•&nbsp;
+                🇮🇳 India state assembly elections in 2026 &nbsp;•&nbsp;
+                🇦🇺 Australia voter turnout remains highest among major democracies at ~92% &nbsp;•&nbsp;
+                🇩🇪 Germany's coalition government navigates new policy era &nbsp;•&nbsp;
+                🇯🇵 Japan considers digital voting pilot program &nbsp;•&nbsp;
+                🇬🇧 UK Electoral Commission releases new voter ID guidance
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-brand">
+            <span class="brand-icon">🗳️</span>
+            <span class="brand-text">ElectBot</span>
+        </div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#countries">Countries</a>
+            <a href="#modes">Modes</a>
+            <a href="dashboard.html" class="nav-dashboard">📊 Live Dashboard</a>
+            <a href="chat.html" class="nav-cta">Start Chatting →</a>
+        </div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-badge">🤖 AI-Powered Election Assistant</div>
+        <h1 class="hero-title">
+            Understand <span class="gradient-text">Democracy</span><br>
+            Through Conversation
+        </h1>
+        <p class="hero-subtitle">
+            Ask anything about elections worldwide. Get instant, accurate, and neutral answers powered by AI. From voter eligibility to ballot simulations — ElectBot has you covered.
+        </p>
+        <div class="hero-actions">
+            <a href="chat.html" class="btn btn-primary" id="start-chat-btn">
+                <span>💬</span> Start Chatting
+            </a>
+            <a href="dashboard.html" class="btn btn-secondary">
+                <span>📊</span> Live Dashboard
+            </a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-num">10</span>
+                <span class="stat-label">Countries</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-num">8</span>
+                <span class="stat-label">Modes</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-num">970M+</span>
+                <span class="stat-label">Voters Covered</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-num">🔴</span>
+                <span class="stat-label">Live Data</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Now Section -->
+    <section class="section trending-section">
+        <h2 class="section-title">🔥 <span class="gradient-text">Trending Now</span></h2>
+        <p class="section-subtitle">What people are asking ElectBot today</p>
+        <div class="trending-grid">
+            <a href="chat.html?action=compare" class="trending-card">
+                <span class="trending-icon">⚖️</span>
+                <div>
+                    <div class="trending-title">Compare US vs India elections</div>
+                    <div class="trending-meta">Most compared today</div>
+                </div>
+                <span class="trending-arrow">→</span>
+            </a>
+            <a href="chat.html?action=eligible" class="trending-card">
+                <span class="trending-icon">✅</span>
+                <div>
+                    <div class="trending-title">Am I eligible to vote in Brazil?</div>
+                    <div class="trending-meta">2026 election approaching</div>
+                </div>
+                <span class="trending-arrow">→</span>
+            </a>
+            <a href="chat.html?action=quiz" class="trending-card">
+                <span class="trending-icon">🧠</span>
+                <div>
+                    <div class="trending-title">Quiz: World Election Systems</div>
+                    <div class="trending-meta">5 questions • 3 min</div>
+                </div>
+                <span class="trending-arrow">→</span>
+            </a>
+            <a href="chat.html" class="trending-card">
+                <span class="trending-icon">📰</span>
+                <div>
+                    <div class="trending-title">Decode election headlines</div>
+                    <div class="trending-meta">Headline Decoder mode</div>
+                </div>
+                <span class="trending-arrow">→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features">
+        <h2 class="section-title">What Can <span class="gradient-text">ElectBot</span> Do?</h2>
+        <p class="section-subtitle">8 powerful modes to make elections understandable for everyone</p>
+        <div class="features-grid" id="modes">
+            <div class="feature-card">
+                <div class="feature-icon">🗺️</div>
+                <h3>Election Guide</h3>
+                <p>Walk through all 8 stages of any country's election process step by step</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚖️</div>
+                <h3>Compare Systems</h3>
+                <p>Side-by-side breakdown of two countries' election systems</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✅</div>
+                <h3>Am I Eligible?</h3>
+                <p>Check your voter eligibility by country with personalized guidance</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>Myth Buster</h3>
+                <p>Fact-check any election claim you've heard with evidence</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🗳️</div>
+                <h3>Ballot Simulator</h3>
+                <p>Practice reading and filling a real ballot before election day</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧭</div>
+                <h3>First-Time Voter</h3>
+                <p>Your personal step-by-step checklist for voting the first time</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📰</div>
+                <h3>Headline Decoder</h3>
+                <p>Paste any election headline and get it explained plainly</p>
+            </div>
+            <div class="feature-card feature-card-new">
+                <div class="feature-icon">🎙️</div>
+                <h3>Voice Input</h3>
+                <p>Ask questions by voice — no typing needed for hands-free learning</p>
+                <span class="feature-badge">NEW</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countries Section -->
+    <section class="section section-dark" id="countries">
+        <h2 class="section-title">Countries We <span class="gradient-text">Cover</span></h2>
+        <p class="section-subtitle">Deep, verified knowledge on 10 major democracies</p>
+        <div class="countries-grid">
+            <a href="chat.html?country=india" class="country-card"><span class="country-flag">🇮🇳</span><span>India</span></a>
+            <a href="chat.html?country=us" class="country-card"><span class="country-flag">🇺🇸</span><span>USA</span></a>
+            <a href="chat.html?country=uk" class="country-card"><span class="country-flag">🇬🇧</span><span>UK</span></a>
+            <a href="chat.html?country=eu" class="country-card"><span class="country-flag">🇪🇺</span><span>EU</span></a>
+            <a href="chat.html?country=brazil" class="country-card"><span class="country-flag">🇧🇷</span><span>Brazil</span></a>
+            <a href="chat.html?country=germany" class="country-card"><span class="country-flag">🇩🇪</span><span>Germany</span></a>
+            <a href="chat.html?country=japan" class="country-card"><span class="country-flag">🇯🇵</span><span>Japan</span></a>
+            <a href="chat.html?country=australia" class="country-card"><span class="country-flag">🇦🇺</span><span>Australia</span></a>
+            <a href="chat.html?country=france" class="country-card"><span class="country-flag">🇫🇷</span><span>France</span></a>
+            <a href="chat.html?country=canada" class="country-card"><span class="country-flag">🇨🇦</span><span>Canada</span></a>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="cta-card">
+            <h2>Ready to explore democracy?</h2>
+            <p>Start a conversation with ElectBot — your AI election expert</p>
+            <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+                <a href="chat.html" class="btn btn-primary btn-lg">💬 Launch ElectBot Chat</a>
+                <a href="dashboard.html" class="btn btn-secondary btn-lg">📊 View Live Dashboard</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>🗳️ ElectBot — Making democracy understandable for everyone</p>
+        <p class="footer-note">AI-powered • Strictly neutral • For educational purposes only</p>
+    </footer>
+
+    <script>
+        // Navbar scroll
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+        // Mobile menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        // Animate on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.feature-card, .country-card, .stat, .trending-card').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
